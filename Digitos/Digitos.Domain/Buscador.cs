@@ -13,9 +13,10 @@
         {
             for(var i = 1; i <= 100000; i++)
             {
-                var subcadena = generador.GetParteCadena(i, 1);
-                if (subcadena == numero.ToString())
-                    return i;
+                var subcadena = generador.GetCadena(i + i.ToString().Length - 1);
+                var result = subcadena.IndexOf(numero.ToString());
+                if (result != -1)
+                    return result + 1;
             }
             return -1;
         }

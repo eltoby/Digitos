@@ -12,8 +12,8 @@
         public void Setup()
         {
             var generador = new Mock<IGenerador>();
-            generador.Setup(x => x.GetParteCadena(1, 1)).Returns("1");
-            generador.Setup(x => x.GetParteCadena(2, 1)).Returns("2");
+            generador.Setup(x => x.GetCadena(1)).Returns("1");
+            generador.Setup(x => x.GetCadena(2)).Returns("12");
             this.buscador = new Buscador(generador.Object); 
         }
 

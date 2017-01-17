@@ -1,12 +1,25 @@
-﻿using System;
-
-namespace Digitos.Domain
+﻿namespace Digitos.Domain
 {
+    using System.Text;
+
     public class Generador : IGenerador
     {
-        public string GetParteCadena(int index, int length)
+        private StringBuilder cadena;
+        private int numero;
+
+        public Generador()
         {
-            return "1";
+            this.cadena = new StringBuilder();
+        }
+
+        public string GetCadena(int length)
+        {
+            while (cadena.Length < length)
+            {
+                numero++;
+                cadena.Append(numero);
+            }
+            return cadena.ToString();                        
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IGenerador
     {
-        string GetParteCadena(int index, int length);
+        string GetCadena(int length);
     }
 }
