@@ -12,8 +12,7 @@
         public void Setup()
         {
             var generador = new Mock<IGenerador>();
-            generador.Setup(x => x.GetCadena(1)).Returns("1");
-            generador.Setup(x => x.GetCadena(2)).Returns("12");
+            generador.Setup(x => x.GetCadena(It.IsInRange(1, 20, Range.Inclusive))).Returns("123456789101112131415");
             this.buscador = new Buscador(generador.Object); 
         }
 
@@ -29,6 +28,13 @@
         {
             var result = this.buscador.Buscar(2);
             Assert.AreEqual(2, result);
+        }
+
+        [TestMethod]
+        public void Buscar91()
+        {
+            var result = this.buscador.Buscar(91);
+            Assert.AreEqual(9, result);
         }
     }
 }
